@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haroon Sardar | Full Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- SMOKY WHITE THEME VARIABLES --- */
+        :root {
+            --bg-color: #f8f9fc; /* Smoky off-white base */
+            --card-bg: #ffffff;  /* Pure white cards for contrast */
+            
+            /* Professional Ocean Blue Gradient */
+            --primary: #005bea; 
+            --secondary: #00c6fb; 
+            --accent-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            
+            --text-main: #1a1a1a; /* Almost black for good readability */
+            --text-muted: #555555; /* Medium gray */
+            
+            /* Soft Shadows for depth */
+            --shadow-soft: 0 10px 30px -15px rgba(0, 91, 234, 0.2);
+            --shadow-card: 0 5px 15px -5px rgba(0,0,0,0.1);
+            
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* The "Smoky" Effect: Subtle light gradients in corners */
+            background-image: 
+                radial-gradient(circle at top left, rgba(0, 91, 234, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at bottom right, rgba(0, 198, 251, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1150px; margin: auto; padding: 0 25px; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Modern Gradient Button */
+        .btn {
+            display: inline-block; padding: 14px 35px; background: var(--accent-gradient); color: white;
+            border-radius: 8px; font-weight: 700; transition: var(--transition); border: none; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 91, 234, 0.3);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 91, 234, 0.5); }
+        
+        .section-title { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 70px; color: var(--text-main); }
+        .section-title span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* --- NAVBAR (White Glass) --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 15px 50px;
+            background: rgba(255, 255, 255, 0.85); /* White frosty look */
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-card);
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; color: var(--text-main); }
+        .logo span { color: var(--primary); }
+        .nav-links a { margin-left: 25px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: var(--transition); color: var(--text-muted); }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO SECTION WITH IMAGE --- */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+        .hero-content { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+        .hero-text { flex: 1; }
+        .hero h1 { font-size: 3.8rem; line-height: 1.1; font-weight: 800; margin-bottom: 20px; color: var(--text-main); }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; max-width: 550px; }
+        .typewriter-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+        
+        /* --- PROFILE IMAGE STYLING --- */
+        .hero-image { flex: 1; display: flex; justify-content: center; }
+        .profile-img-wrapper {
+            width: 380px; height: 380px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic modern shape */
+            padding: 8px; background: var(--accent-gradient);
+            box-shadow: var(--shadow-soft); animation: morph 8s ease-in-out infinite;
+        }
+        .profile-img {
+            width: 100%; height: 100%; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover; border: 5px solid white; background-color: #ddd; animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .projects { padding: 100px 0; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card {
+            background: var(--card-bg); border-radius: 16px; padding: 35px;
+            border: 1px solid rgba(0,0,0,0.04); box-shadow: var(--shadow-card);
+            transition: var(--transition); display: flex; flex-direction: column;
+        }
+        .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-soft); border-color: rgba(0, 91, 234, 0.2); }
+        .card-header i { font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        .project-card h3 { font-size: 1.4rem; margin-bottom: 15px; font-weight: 700; color: var(--text-main); }
+        .project-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
+        .tags span {
+            display: inline-block; background: rgba(0, 91, 234, 0.08); color: var(--primary);
+            padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-right: 8px; margin-bottom: 8px;
+        }
+        .card-links a { 
+            font-weight: 700; color: var(--primary); border-bottom: 2px solid rgba(0, 91, 234, 0.3); transition: var(--transition);
+        }
+        .card-links a:hover { border-bottom-color: var(--primary); color: var(--text-main); }
+
+        /* --- SKILLS SECTION --- */
+        .skills { padding: 80px 0; background: white; box-shadow: inset 0 0 20px rgba(0,0,0,0.02); }
+        .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px;}
+        .skill-tag {
+            background: var(--bg-color); padding: 12px 25px; border-radius: 12px; font-weight: 600;
+            box-shadow: var(--shadow-card); transition: var(--transition); display: flex; align-items: center; gap: 10px; color: var(--text-main);
+        }
+        .skill-tag i { color: var(--primary); font-size: 1.2rem; }
+        .skill-tag:hover { transform: translateY(-3px); background: white; box-shadow: var(--shadow-soft); }
+
+        /* --- CONTACT SECTION --- */
+        .contact { padding: 120px 0; }
+        .contact-form {
+            max-width: 600px; margin: auto; background: var(--card-bg); padding: 50px;
+            border-radius: 20px; box-shadow: var(--shadow-soft);
+        }
+        .input-group { margin-bottom: 25px; }
+        .input-group label { display: block; margin-bottom: 10px; color: var(--text-main); font-weight: 600; }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 15px; background: var(--bg-color); border: 2px solid transparent;
+            border-radius: 10px; color: var(--text-main); font-family: 'Inter', sans-serif; transition: var(--transition);
+        }
+        .input-group input:focus, .input-group textarea:focus { outline: none; border-color: var(--primary); background: white; }
+
+        footer { padding: 40px; text-align: center; background: white; color: var(--text-muted); border-top: 1px solid rgba(0,0,0,0.05);}
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero-content { flex-direction: column-reverse; text-align: center; gap: 40px; }
+            .profile-img-wrapper { width: 280px; height: 280px; }
+            nav { padding: 15px 20px; } .nav-links { display: none; }
+            .contact-form { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Haroon<span>.</span></div>
+        <div class="nav-links">
+            <a href="#projects">Work</a>
+            <a href="#skills">Expertise</a>
+            <a href="#contact">Contact</a>
+            <a href="https://github.com/haroonsardar" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Haroon Sardar</span></h1>
+                    <p>A passionate Full Stack Developer crafting robust digital solutions. Currently focused on <span class="typewriter-text" id="typing-text"></span></p>
+                    <a href="#projects" class="btn">View My Projects</a>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-img-wrapper">
+                        <img src="profile.jpg" alt="Haroon Sardar" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">My <span>Expertise</span></h2>
+            <div class="skills-grid">
+                <div class="skill-tag"><i class="fab fa-python"></i> Python & AI</div>
+                <div class="skill-tag"><i class="fas fa-server"></i> Django / Flask</div>
+                <div class="skill-tag"><i class="fab fa-react"></i> React & Node.js</div>
+                <div class="skill-tag"><i class="fas fa-database"></i> SQL / MongoDB</div>
+                <div class="skill-tag"><i class="fas fa-eye"></i> OpenCV / YOLO</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Work</span></h2>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="card-header"><i class="far fa-folder-open"></i></div>
+                    <h3>AI Lip Syncing Web App</h3>
+                    <p>Advanced AI application using Wav2Lip deep learning models to synchronize audio with video characters precisely in a web interface.</p>
+                    <div class="tags"><span>Python</span><span>PyTorch</span><span>Flask</span><span>React</span></div>
+                    <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header"><i class="far fa-folder-open"></i></div>
+                    <h3>Course Activity & Monitoring</h3>
+                    <p>A comprehensive system for Instructors to manage course deliverables and track student activities efficiently. Includes dashboard analytics.</p>
+                    <div class="tags"><span>React/Vue</span><span>Node.js</span><span>Django</span><span>MySQL</span></div>
+                    <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header"><i class="far fa-folder-open"></i></div>
+                    <h3>PharmaCare System</h3>
+                    <p>Full-featured e-commerce platform for medicine shopping. Secure auth, cart management, and prescription upload capabilities.</p>
+                    <div class="tags"><span>Python</span><span>Flask</span><span>SQLite</span><span>Bootstrap</span></div>
+                    <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header"><i class="far fa-folder-open"></i></div>
+                    <h3>Human Detection & Tracking</h3>
+                    <p>Computer Vision project leveraging YOLOv8 and OpenCV for real-time human detection and counting for security analysis.</p>
+                    <div class="tags"><span>Python</span><span>OpenCV</span><span>YOLOv8</span></div>
+                    <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header"><i class="far fa-folder-open"></i></div>
+                    <h3>Automated Content Evaluation</h3>
+                    <p>MERN stack app that automates student assignment grading. Features JWT authentication and Admin/Evaluator dashboards.</p>
+                    <div class="tags"><span>MongoDB</span><span>Express</span><span>React</span><span>Node</span></div>
+                    <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's <span>Connect</span></h2>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/xeobvpwn" method="POST">
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea name="message" rows="5" required placeholder="Your message..."></textarea>
+                    </div>
+                    <center><button type="submit" class="btn">Send Message</button></center>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Designed & Built by Haroon Sardar. © 2025</p>
+    </footer>
+
+    <script>
+        const textElement = document.getElementById("typing-text");
+        const texts = ["Full Stack Development.", "AI & Computer Vision.", "Python Solutions."];
+        let count = 0; let index = 0; let currentText = ""; let letter = "";
+        (function type() {
+            if (count === texts.length) { count = 0; }
+            currentText = texts[count]; letter = currentText.slice(0, ++index);
+            textElement.textContent = letter;
+            if (letter.length === currentText.length) { count++; index = 0; setTimeout(type, 2000); } 
+            else { setTimeout(type, 100); }
+        }());
+    </script>
+</body>
+</html>
