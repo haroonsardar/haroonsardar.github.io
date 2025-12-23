@@ -136,17 +136,13 @@
         .footer-socials a:hover { color: var(--primary); transform: translateY(-5px); }
         .footer-copyright { font-size: 0.85rem; padding: 10px 0; border-top: 1px solid rgba(0,0,0,0.05);}
         
-        /* --- FINAL ANIMATION CLASSES (Differentiated) --- */
-        
-        /* Generic Reveal (for Sections, Titles, Contact) */
+        /* --- FINAL ANIMATION CLASSES --- */
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Left Slide Reveal (For Skills) */
         .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .reveal-left.active { opacity: 1; transform: translateX(0); }
         
-        /* Staggered Delay Classes */
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
@@ -155,26 +151,18 @@
         .delay-6 { transition-delay: 0.6s; }
         .delay-7 { transition-delay: 0.7s; } 
         .delay-8 { transition-delay: 0.8s; } 
+        .delay-9 { transition-delay: 0.9s; } 
         
-        /* --- NEW HERO SECTION INTRO ANIMATION --- */
         .hero-animate {
-            /* Start hidden and slightly down */
             opacity: 0;
             transform: translateY(20px);
             animation: introFade 0.6s ease-out forwards;
         }
         @keyframes introFade {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 900px) {
             nav { padding: 15px 20px; }
             .nav-links {
@@ -191,8 +179,6 @@
             .hero-content { flex-direction: column-reverse; text-align: center; gap: 40px; }
             .profile-img-wrapper { width: 280px; height: 280px; }
             .contact-form { padding: 30px 20px; }
-            
-            /* Footer on Mobile */
             .footer-links-list { flex-direction: column; gap: 10px; }
         }
     </style>
@@ -214,7 +200,6 @@
     <section class="hero" id="hero-section">
         <div class="container">
             <div class="hero-content" id="hero-content">
-                
                 <div class="hero-text">
                     <h1 class="hero-animate" style="animation-delay: 0.1s;">Hi, I'm <span>Haroon Sardar</span></h1>
                     <p class="hero-animate" style="animation-delay: 0.4s;">A passionate Full Stack Developer crafting robust digital solutions. Currently focused on <span class="typewriter-text" id="typing-text"></span></p>
@@ -249,6 +234,14 @@
             <div class="project-grid">
 
                 <div class="project-card reveal delay-1">
+                    <div class="card-header"><i class="fas fa-comments" style="color: #3b82f6;"></i></div>
+                    <h3>Connect & Converse</h3>
+                    <p>A full-featured university discussion hub with role-based authentication, community moderation, thread voting (upvote/downvote), and real-time email notifications for engaging academic discussions.</p>
+                    <div class="tags"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>Admin Panel</span><span>Moderation</span></div>
+                    <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+
+                <div class="project-card reveal delay-2">
                     <div class="card-header"><i class="fas fa-tshirt" style="color: #6366f1;"></i></div>
                     <h3>Clothing Management (Desktop)</h3>
                     <p>A professional desktop application developed for efficient inventory management, sales tracking, and reporting for a clothing business using Python GUI libraries.</p>
@@ -256,7 +249,7 @@
                     <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
                 </div>
 
-                <div class="project-card reveal delay-2">
+                <div class="project-card reveal delay-3">
                     <div class="card-header"><i class="far fa-folder-open"></i></div>
                     <h3>AI Lip Syncing Web App</h3>
                     <p>Advanced AI application using Wav2Lip deep learning models to synchronize audio with video characters precisely in a web interface.</p>
@@ -264,7 +257,7 @@
                     <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
                 </div>
 
-                <div class="project-card reveal delay-3">
+                <div class="project-card reveal delay-4">
                     <div class="card-header"><i class="far fa-folder-open"></i></div>
                     <h3>Course Activity & Monitoring</h3>
                     <p>A comprehensive system for Instructors to manage course deliverables and track student activities efficiently. Includes dashboard analytics.</p>
@@ -272,7 +265,7 @@
                     <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
                 </div>
 
-                <div class="project-card reveal delay-4">
+                <div class="project-card reveal delay-5">
                     <div class="card-header"><i class="far fa-folder-open"></i></div>
                     <h3>PharmaCare System</h3>
                     <p>Full-featured e-commerce platform for medicine shopping. Secure auth, cart management, and prescription upload capabilities.</p>
@@ -280,22 +273,23 @@
                     <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
                 </div>
                 
-                <div class="project-card reveal delay-5">
+                <div class="project-card reveal delay-6">
                     <div class="card-header"><i class="fas fa-heartbeat" style="color: #ef4444;"></i></div>
                     <h3>Smart Health Monitoring System</h3>
-                    <p>IoT-based system for real-time tracking of vital signs (Heart Rate, Blood Pressure) using sensors and transmitting data to a secure web dashboard for medical analysis and alerts.</p>
+                    <p>IoT-based system for real-time tracking of vital signs (Heart Rate, Blood Pressure) using sensors and transmitting data to a secure web dashboard.</p>
                     <div class="tags"><span>IoT</span><span>Python</span><span>Flask/Django</span><span>Sensors</span><span>Dashboard</span></div>
                     <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
                 </div>
 
-                <div class="project-card reveal delay-6">
+                <div class="project-card reveal delay-7">
                     <div class="card-header"><i class="fas fa-network-wired" style="color: #008080;"></i></div>
                     <h3>Intelligent Network Monitoring</h3>
-                    <p>Detailed design and analysis of complex network topologies using **Cisco Packet Tracer**. Utilized **Wireshark** for deep packet inspection and network performance monitoring/troubleshooting.</p>
+                    <p>Detailed design and analysis of complex network topologies using Cisco Packet Tracer and Wireshark for performance troubleshooting.</p>
                     <div class="tags"><span>Networking</span><span>Cisco Packet Tracer</span><span>Wireshark</span><span>Protocols</span></div>
                     <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
                 </div>
-                <div class="project-card reveal delay-7">
+
+                <div class="project-card reveal delay-8">
                     <div class="card-header"><i class="far fa-folder-open"></i></div>
                     <h3>Human Detection & Tracking</h3>
                     <p>Computer Vision project leveraging YOLOv8 and OpenCV for real-time human detection and counting for security analysis.</p>
@@ -303,7 +297,7 @@
                     <div class="card-links"><a href="https://github.com/haroonsardar" target="_blank">View Code <i class="fas fa-arrow-right"></i></a></div>
                 </div>
 
-                <div class="project-card reveal delay-8">
+                <div class="project-card reveal delay-9">
                     <div class="card-header"><i class="far fa-folder-open"></i></div>
                     <h3>Automated Content Evaluation</h3>
                     <p>MERN stack app that automates student assignment grading. Features JWT authentication and Admin/Evaluator dashboards.</p>
@@ -348,9 +342,9 @@
             </div>
 
             <ul class="footer-links-list">
-                <li><a href="#projects" onclick="toggleMenu()">Work</a></li>
-                <li><a href="#skills" onclick="toggleMenu()">Expertise</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#skills">Expertise</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="https://github.com/haroonsardar" target="_blank">GitHub</a></li>
             </ul>
 
@@ -366,7 +360,6 @@
     </footer>
 
     <script>
-        // Typing Effect (unchanged)
         const textElement = document.getElementById("typing-text");
         const texts = ["Full Stack Development.", "AI & Computer Vision.", "Python Solutions."];
         let count = 0; let index = 0; let currentText = ""; let letter = "";
@@ -378,13 +371,11 @@
             else { setTimeout(type, 100); }
         }());
         
-        // Responsive Menu Toggle (FIXED)
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active'); 
         }
 
-        // Scroll Reveal Animation (UPDATED to check all reveal classes)
         window.addEventListener('scroll', reveal);
         function reveal(){
             var reveals = document.querySelectorAll('.reveal, .reveal-left');
@@ -399,25 +390,19 @@
         }
         reveal();
 
-
-        // ⭐ INTERACTIVE MOUSE PARALLAX ⭐
         const heroSection = document.getElementById('hero-section');
         const heroContent = document.getElementById('hero-content');
         const maxTilt = 1;
 
         heroSection.addEventListener('mousemove', (e) => {
-            if (window.innerWidth <= 900) return; // Disable on mobile
-            
+            if (window.innerWidth <= 900) return; 
             const rect = heroSection.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
-            
             const rotationY = (e.clientX - centerX) / (rect.width / 2);
             const rotationX = (e.clientY - centerY) / (rect.height / 2);
-
             const tiltX = -rotationX * maxTilt;
             const tiltY = rotationY * maxTilt;
-
             heroContent.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
         });
 
